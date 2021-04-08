@@ -2,7 +2,7 @@
    <div class="container-header">
       <h1>Flight Simulator</h1>
       <h2>Current Flight Status</h2>
-      <p>Space shuttle ready for takeoff!</p>
+      <p>{{message}}</p>
       <h2>Shuttle Trajectory</h2>
    </div>
    <div class="row justify-content-center">
@@ -16,8 +16,9 @@
       </div>
 
       <div class="col-6">
-         <div class="shuttle-background" style="background-color: green">
-            <img src="assets/images/LaunchCode_rocketline_white.png" height = "75" width = "75" [style.left]="0" [style.bottom]="0"/>
+         <div class="shuttle-background" [style.backgroundColor]="color">
+            <img #rocketImage src="assets/images/LaunchCode_rocketline_white.png" height = "75" width = "75" [style.left]="0" [style.bottom]="0"/>
+            <button (click)="moveRocket(rocketImage, 'right')">Right</button>
          </div>
       </div>
 
@@ -27,14 +28,14 @@
             <button>Down</button>
             <button>Right</button>
             <button>Left</button>
-            <h3>Space Shuttle Height</h3>
+            <p>{{height}} km</p>
             <p>0 km</p>
          </div>
       </div>
    </div>
    <div class="container-control-buttons">
-      <button>Take Off</button>
-      <button>Land</button>
-      <button>Abort Mission</button>
+      <button (click) = "handleTakeOff()">Take Off</button>
+      <button (click) = "handleLand()">Take Off</button>
+      <button (click) = "handleAbortMission">Take Off</button>
    </div>
 </div>
